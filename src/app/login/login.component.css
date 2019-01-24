@@ -1,0 +1,35 @@
+form{
+  position: relative
+}
+.branding{
+  position: absolute;
+  right: 20px;
+  top: 17px;
+  z-index: 1;
+  width: 120px;
+}
+.branding img{
+  width:100%
+}
+mat-card {
+  max-width: 400px;
+  margin:0 auto;
+}
+mat-form-field{
+  width:100%
+}
+mat-spinner, .f-right{
+  float:right
+}
+.msg{
+  line-height: 40px
+}
+.container {
+  background: #93c3ea url(../../assets/cityscape.png) no-repeat;
+  background-size:100% auto;
+  background-position: 0 120%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}

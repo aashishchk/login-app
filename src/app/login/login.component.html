@@ -1,0 +1,39 @@
+<div class="container">
+  <form (ngSubmit)="submitCredentials()" #f="ngForm">
+    <div class="branding"><img src="../../assets/logo.png"/></div>
+    <mat-card>
+        <mat-card-title>Login</mat-card-title>
+        <mat-form-field>
+            <input
+              matInput
+              placeholder="Username (email)"
+              id="username"
+              name="username"
+              #username="ngModel"
+              ngModel
+              email
+              required
+              (focus)="inputFocus()">
+              <mat-error *ngIf="username.errors && username.errors.required">Enter registered email</mat-error>
+              <mat-error *ngIf="username.errors && !username.errors.required && username.errors.email">Invalid Email Format</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input
+            matInput
+            placeholder="Password"
+            type="password"
+            id="password"
+            name="password"
+            #password="ngModel"
+            ngModel
+            required
+            (focus)="inputFocus()">
+            <mat-error class="f-right" *ngIf="password.errors && password.errors.required">Enter a password</mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="accent" [disabled]="f.invalid || requestInProcess">Login</button>
+        <mat-spinner color="accent" strokeWidth="3" [diameter]="40" *ngIf="requestInProcess"></mat-spinner>
+        <mat-error class="msg f-right" *ngIf="authorizationFailed">{{ authorizationFailed.message }}</mat-error>
+      </mat-card>
+  </form>
+</div>
+
